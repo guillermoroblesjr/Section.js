@@ -5,12 +5,17 @@ A simple way to modularize your javascript components for the Browser. Dependenc
   <li>require.js</li>
   <li>lodash.js</li>
   <li>amplify.js</li>
+  <li>jquery.js</li>
 </ol>
 
-After you have the dependencies loaded, do something like this:
+In your file, do something like this:
 
 ```js
+var $ = require('jquery');
+var _ = require('lodash');
+var amplify = require('amplify');
 var Section = require('js/components/Section');
+
 var feature = new Section({
   section: $('body'),
   events: {
@@ -23,6 +28,12 @@ var feature = new Section({
           'e is: ', e, '\n',
           'e.data is: ', e.data
         );
+        
+        _.each( $(this), function(item, count, collection){
+          console.log('item is: ', item);
+        });
+        
+        amplify.publish('a-div-was-clicked!', { event: e, element: $(this), instance: e.data.instance });
       }
     }
   },
