@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./app/scripts/Section/Section.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./app/scripts/Section/Section.js</span></h1>
+    <h2>
+        Statements: <span class="metric">69.77% <small>(30 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">66.67% <small>(12 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">50% <small>(5 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">69.77% <small>(30 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./app/scripts/Section/</a> &#187; Section.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// define(function(require, exports, module){
+&nbsp;
+(function(scope){
+&nbsp;
+  'use strict';
+&nbsp;
+  // var amplify = require('amplify');
+&nbsp;
+  ////////////////////////////////////////////////////////////////////////
+  // Private API
+  ////////////////////////////////////////////////////////////////////////
+&nbsp;
+  var _Private = function(){
+    'use strict';
+&nbsp;
+    this.subscriptions = {};
+    this.subscriptionStrings = {};
+    this.events = {};
+    this.eventsStrings = {};
+    this.throwErrors = false;
+    this.cache = {};
+&nbsp;
+    return this;
+  };
+&nbsp;
+  _Private.prototype = Object.create( Object.prototype );
+  
+  _Private.prototype.constructor = _Private;
+&nbsp;
+  var _private = new _Private();
+&nbsp;
+  ////////////////////////////////////////////////////////////////////////
+  // Public API
+  ////////////////////////////////////////////////////////////////////////
+&nbsp;
+  var Fn = function( options ){
+    'use strict';
+&nbsp;
+    options = options || {};
+    this.elements = {
+      section: options.section || null
+    };
+    this.events = options.events || [];
+    this.subscriptions = options.subscriptions || [];
+    this.inits = options.inits || [];
+    this.data = options.data || {};
+  };
+&nbsp;
+  Fn.prototype = Object.create( Object.prototype );
+&nbsp;
+  Fn.prototype.constructor = Fn;
+&nbsp;
+  Fn.prototype.init = function(){
+    'use strict';
+&nbsp;
+    var fruit;
+&nbsp;
+    Object.keys({ apples: true }).forEach(function (k) {
+      // fruit = k;
+      return true;
+    });
+&nbsp;
+    // loops though all the events and applies events on the section specified
+    // this.events.forEach(function( item, count, collection ){
+    [1,2,3].forEach(<span class="fstat-no" title="function not covered" >function( item, count, collection ){</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+      // var self = this;
+      // var data = {
+      //   instance: self,
+      //   item: item
+      // };
+&nbsp;
+      // if ( _private.throwErrors === true ) {
+      //   var err = new Error();
+      //   console.error( 
+      //     'Function definition: ', item.fn,
+      //     '\n',
+      //     new Error(
+      //       'You may not use the same event function more than once!'
+      //       + '\n'
+      //       + 'Follow the stack below, '
+      //       + 'look for the line after "Fn.init".'
+      //       + '\n'
+      //       + err.stack
+      //     )
+      //   );
+      // }
+&nbsp;
+      // if (this.elements.section === null) { return; }
+&nbsp;
+      // this.elements.section.on( item.events, item.selector, data, item.fn );
+    }.bind(this));
+&nbsp;
+    // _.each( this.events, function ( item, count, collection ){
+&nbsp;
+    //   var self = this;
+    //   var data = {
+    //     instance: self,
+    //     item: item
+    //   };
+&nbsp;
+    //   var fnString = item.fn.toString();
+&nbsp;
+    //   // make sure no one uses the same event functions more than once!     
+    //   var eventFunctionResult = _.find( _private.events, { fn: item.fn } );
+    //   var eventFunctionStringResult = _.find( _private.eventsStrings, { fn: fnString } );
+&nbsp;
+    //   if ( _private.throwErrors === true &amp;&amp; _.isUndefined( eventFunctionResult ) === false || _.isUndefined( eventFunctionStringResult ) === false ) {
+    //     var err = new Error();
+    //     console.error( 
+    //       'Event object: ', eventFunctionResult,
+    //       '\n',
+    //       'Function definition: ', item.fn,
+    //       '\n',
+    //       new Error(
+    //         'You may not use the same event function more than once!'
+    //         + '\n'
+    //         + 'Follow the stack below, '
+    //         + 'look for the line after "Fn.init".'
+    //         + '\n'
+    //         + err.stack
+    //       )
+    //     );
+    //     // throw new Error();
+    //   }
+&nbsp;
+    //   // save the event functions so we can make sure the same functions
+    //   // are not being used more than once!
+    //   var eventObj = {};
+    //   eventObj[count] = item;
+    //   _.merge( _private.events, eventObj );
+&nbsp;
+    //   // save the string version of the function
+    //   _.merge( _private.eventsStrings, eventObj );
+    //   var eventFunctionResult2 = _.find( _private.eventsStrings, { fn: item.fn } );
+    //   eventFunctionResult2.fn = fnString;
+&nbsp;
+    //   this.elements.section.on( item.events, item.selector, data, item.fn );
+    // }, this);
+&nbsp;
+&nbsp;
+    // Create the amplify subscriptions for each of the subscriptions passed
+    // in through the options object
+    // _.each( this.subscriptions, function( item, count, collection ){
+&nbsp;
+    //   var fnString = item.fn.toString();
+&nbsp;
+    //   // make sure no one sets the same subscription function more than once!
+    //   var subscriptionFunctionResult = _.find( _private.subscriptions, subObj );
+    //   var subFunctionStringResult = _.find( _private.subscriptionsStrings, { fn: fnString } );
+&nbsp;
+    //   if ( _private.throwErrors === true &amp;&amp; _.isUndefined( subscriptionFunctionResult ) === false ) {
+&nbsp;
+    //     var err = new Error();
+    //     console.error( 
+    //       'subscription: ', subscriptionFunctionResult[subscriptionFunctionResult.length - 1],
+    //       '\n',
+    //       new Error(
+    //         'You may not add the same subscription more than once!'
+    //         + '\n'
+    //         + err.stack
+    //       )
+    //     );
+    //     // throw new Error();
+    //   }
+&nbsp;
+    //   // save the subscription functions so we can make sure the same functions
+    //   // are not being used more than once!
+    //   var subObj = {};
+    //   subObj[count] = item;
+    //   _.merge( _private.subscriptions, subObj );
+&nbsp;
+    //   // save the string version of the function
+    //   _.merge( _private.subscriptionStrings, subObj );
+    //   var subscriptionFunctionResult2 = _.find( _private.subscriptionStrings, { fn: item.fn } );
+    //   subscriptionFunctionResult2.fn = fnString;
+&nbsp;
+    //   amplify.subscribe( item.topic, this, item.fn );
+    // }, this);
+&nbsp;
+    // loops through all inits and runs them
+    // _.each( this.inits, function( item, count, collection ){
+    //   item.fn.apply( this, item.args );
+    // }, this);
+  };
+&nbsp;
+  Fn.publish = Fn.prototype.publish = <span class="fstat-no" title="function not covered" >function(/* String */topic, /* Array? */data){</span>
+    'use strict';
+<span class="cstat-no" title="statement not covered" >    try{</span>
+<span class="cstat-no" title="statement not covered" >      for (var prop in _private.cache[topic]) {</span>
+<span class="cstat-no" title="statement not covered" >        _private.cache[topic][prop](data);</span>
+      }
+    } catch (err) {
+      // handle this error
+<span class="cstat-no" title="statement not covered" >      console.log(err);</span>
+    }
+  };
+&nbsp;
+  Fn.subscribe = Fn.prototype.subscribe = <span class="fstat-no" title="function not covered" >function(/* String */topic, /* Function */callback){</span>
+    'use strict';
+<span class="cstat-no" title="statement not covered" >    if(!_private.cache[topic]){</span>
+<span class="cstat-no" title="statement not covered" >      _private.cache[topic] = [];</span>
+    }
+<span class="cstat-no" title="statement not covered" >    _private.cache[topic].push(callback);</span>
+<span class="cstat-no" title="statement not covered" >    return [topic, callback]; </span>// Array
+  };
+&nbsp;
+  Fn.unsubscribe = Fn.prototype.unsubscribe = <span class="fstat-no" title="function not covered" >function(/* Array */handle){</span>
+    'use strict';
+<span class="cstat-no" title="statement not covered" >    var t = handle[0];</span>
+<span class="cstat-no" title="statement not covered" >    _private.cache[t] &amp;&amp; _private.cache[t].forEach(<span class="fstat-no" title="function not covered" >function(item, idx, collection){</span></span>
+<span class="cstat-no" title="statement not covered" >      if(item === handle[1]){</span>
+<span class="cstat-no" title="statement not covered" >        _private.cache[t].splice(idx, 1);</span>
+      }
+    });
+  };
+&nbsp;
+  scope.Section = Fn;
+&nbsp;
+})(this, undefined);
+// });
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Apr 20 2016 12:58:54 GMT-0500 (Central Daylight Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
