@@ -7,8 +7,12 @@
   
   describe("Section.js", function() {
 
-    it('should be a global function', function(){
+    it('should be a global function in a non-AMD environment', function(){
       expect(Section).to.be.a('function');
+    });
+
+    it('should return the version', function(){
+      expect(Section.version()).to.be.a('string');
     });
 
     describe('inherit properties', function(){
@@ -35,30 +39,141 @@
         feature.init();
         expect(feature.subscriptions).to.be.a.array;
       });
+
+      it('should have data as an object', function(){
+        var feature = new Section();
+        feature.init();
+        expect(feature.data).to.be.a.object;
+      });
     });
 
-    describe('doing something', function(){
-      it('should x', function(){
+    describe('passing options', function(){
+      it('should add the event to the events array', function(){
+
+        var event = {
+          events: 'click',
+          selector: 'div',
+          fn: function(e){
+            console.log('event: ', e);
+          }
+        };
 
         var feature = new Section({
           section: $('div'),
           data: {},
-          events: [
-            {
-              events: 'click',
-              selector: 'div',
-              fn: function(e){
-                console.log('event: ', e);
-              }
-            }
-          ],
+          events: [ event ],
           subscriptions: [],
           inits: [],
-        }).init();
+        });
 
-        var awesome = feature.init();
+        feature.init();
 
-        expect(awesome).to.be.undefined;
+        expect(feature.events[0]).to.equal(event);
+      });
+
+      it('should add the subscription to the subscriptions array', function(){
+
+        var subscription = {
+          topic: 'topic1',
+          fn: function( data ){}
+        };
+        
+        var feature = new Section({
+          section: $('div'),
+          data: {},
+          events: [],
+          subscriptions: [ subscription ],
+          inits: [],
+        });
+
+        feature.init();
+
+        expect(feature.subscriptions[0]).to.equal(subscription);
+      });
+
+      it('should add the init to the inits array', function(){
+
+        var init1 = {
+          fn: function( data ){},
+          args: []
+        };
+        
+        var feature = new Section({
+          section: null,
+          data: {},
+          events: [],
+          subscriptions: [],
+          inits: [ init1 ],
+        });
+
+        feature.init();
+
+        expect(feature.inits[0]).to.equal(init1);
+      });
+
+      it('should add the data object to the data object', function(){
+
+        var data = {
+          awesome: true
+        };
+        
+        var feature = new Section({
+          section: null,
+          data: {
+            awesome: true
+          },
+          events: [],
+          subscriptions: [],
+          inits: [],
+        });
+
+        feature.init();
+
+        expect(feature.data.awesome).to.equal(true);
+      });
+    });
+
+    describe('publish/subscribe', function(){
+      it('should return the subscription handle', function(){
+
+        var topic = 'a';
+        var bindee = {};
+        var fn = function(){ return 'red'; };
+        var subscription = Section.subscribe(topic, bindee, fn);
+
+        expect(subscription[0]).to.equal(topic);
+        expect(subscription[1]()).to.equal(fn.bind(bindee)());
+      });
+
+      it('should recieve the publish', function(){
+
+        var topic = 'b';
+        var bindee = {};
+        var fn = function(data){
+          expect(data).to.equal(4);
+        };
+        var subscription = Section.subscribe(topic, bindee, fn);
+        Section.publish('b', 4);
+      });
+
+      it('should unsubscribe the subscription', function(){
+
+        var topic = 'c';
+        var bindee = {};
+        var fn = function(data){
+          expect(true).to.equal(false);
+        };
+        var subscription = Section.subscribe(topic, bindee, fn);
+
+        Section.unsubscribe(subscription);
+
+        Section.publish('c', 9);
+      });
+
+      it('should return the subscriptions', function(){
+
+        var subscriptions = Section.getSubscriptions();
+        expect(subscriptions).to.be.a.object;
       });
     });
 

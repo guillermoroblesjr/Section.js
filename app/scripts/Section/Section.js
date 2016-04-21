@@ -1,10 +1,23 @@
-// define(function(require, exports, module){
-
-(function(scope){
+(function (root, factory) {
+  if(typeof define === "function" && define.amd) {
+    // Now we're wrapping the factory and assigning the return
+    // value to the root (window) and returning it as well to
+    // the AMD loader.
+    define(["Section"], function(Section){
+      return (root.Section = factory(Section));
+    });
+  } else if(typeof module === "object" && module.exports) {
+    // I've not encountered a need for this yet, since I haven't
+    // run into a scenario where plain modules depend on CommonJS
+    // *and* I happen to be loading in a CJS browser environment
+    // but I'm including it for the sake of being thorough
+    module.exports = (root.Section = factory(require("Section")));
+  } else {
+    root.Section = factory(root.Section);
+  }
+}(this, function(Section) {
 
   'use strict';
-
-  // var amplify = require('amplify');
 
   ////////////////////////////////////////////////////////////////////////
   // Private API
@@ -13,11 +26,7 @@
   var _Private = function(){
     'use strict';
 
-    this.subscriptions = {};
-    this.subscriptionStrings = {};
-    this.events = {};
-    this.eventsStrings = {};
-    this.throwErrors = false;
+    this.VERSION = '0.0.5';
     this.cache = {};
 
     return this;
@@ -53,131 +62,31 @@
   Fn.prototype.init = function(){
     'use strict';
 
-    var fruit;
-
-    Object.keys({ apples: true }).forEach(function (k) {
-      // fruit = k;
-      return true;
-    });
-
     // loops though all the events and applies events on the section specified
-    // this.events.forEach(function( item, count, collection ){
-    [1,2,3].forEach(function( item, count, collection ){
+    for (var i = 0, len = this.events.length; i < len; i++) {
+      (function(i, instance){
+        if (instance.elements.section === null) { return; }
+        var item = instance.events[i];
+        var data = {
+          instance: instance,
+          item: item
+        };
+        instance.elements.section.on( item.events, item.selector, data, item.fn );
+      })(i, this);
+    }
 
-      return true;
-      // var self = this;
-      // var data = {
-      //   instance: self,
-      //   item: item
-      // };
-
-      // if ( _private.throwErrors === true ) {
-      //   var err = new Error();
-      //   console.error( 
-      //     'Function definition: ', item.fn,
-      //     '\n',
-      //     new Error(
-      //       'You may not use the same event function more than once!'
-      //       + '\n'
-      //       + 'Follow the stack below, '
-      //       + 'look for the line after "Fn.init".'
-      //       + '\n'
-      //       + err.stack
-      //     )
-      //   );
-      // }
-
-      // if (this.elements.section === null) { return; }
-
-      // this.elements.section.on( item.events, item.selector, data, item.fn );
-    }.bind(this));
-
-    // _.each( this.events, function ( item, count, collection ){
-
-    //   var self = this;
-    //   var data = {
-    //     instance: self,
-    //     item: item
-    //   };
-
-    //   var fnString = item.fn.toString();
-
-    //   // make sure no one uses the same event functions more than once!     
-    //   var eventFunctionResult = _.find( _private.events, { fn: item.fn } );
-    //   var eventFunctionStringResult = _.find( _private.eventsStrings, { fn: fnString } );
-
-    //   if ( _private.throwErrors === true && _.isUndefined( eventFunctionResult ) === false || _.isUndefined( eventFunctionStringResult ) === false ) {
-    //     var err = new Error();
-    //     console.error( 
-    //       'Event object: ', eventFunctionResult,
-    //       '\n',
-    //       'Function definition: ', item.fn,
-    //       '\n',
-    //       new Error(
-    //         'You may not use the same event function more than once!'
-    //         + '\n'
-    //         + 'Follow the stack below, '
-    //         + 'look for the line after "Fn.init".'
-    //         + '\n'
-    //         + err.stack
-    //       )
-    //     );
-    //     // throw new Error();
-    //   }
-
-    //   // save the event functions so we can make sure the same functions
-    //   // are not being used more than once!
-    //   var eventObj = {};
-    //   eventObj[count] = item;
-    //   _.merge( _private.events, eventObj );
-
-    //   // save the string version of the function
-    //   _.merge( _private.eventsStrings, eventObj );
-    //   var eventFunctionResult2 = _.find( _private.eventsStrings, { fn: item.fn } );
-    //   eventFunctionResult2.fn = fnString;
-
-    //   this.elements.section.on( item.events, item.selector, data, item.fn );
-    // }, this);
-
-
-    // Create the amplify subscriptions for each of the subscriptions passed
+    // Create the subscriptions for each of the subscriptions passed
     // in through the options object
-    // _.each( this.subscriptions, function( item, count, collection ){
-
-    //   var fnString = item.fn.toString();
-
-    //   // make sure no one sets the same subscription function more than once!
-    //   var subscriptionFunctionResult = _.find( _private.subscriptions, subObj );
-    //   var subFunctionStringResult = _.find( _private.subscriptionsStrings, { fn: fnString } );
-
-    //   if ( _private.throwErrors === true && _.isUndefined( subscriptionFunctionResult ) === false ) {
-
-    //     var err = new Error();
-    //     console.error( 
-    //       'subscription: ', subscriptionFunctionResult[subscriptionFunctionResult.length - 1],
-    //       '\n',
-    //       new Error(
-    //         'You may not add the same subscription more than once!'
-    //         + '\n'
-    //         + err.stack
-    //       )
-    //     );
-    //     // throw new Error();
-    //   }
-
-    //   // save the subscription functions so we can make sure the same functions
-    //   // are not being used more than once!
-    //   var subObj = {};
-    //   subObj[count] = item;
-    //   _.merge( _private.subscriptions, subObj );
-
-    //   // save the string version of the function
-    //   _.merge( _private.subscriptionStrings, subObj );
-    //   var subscriptionFunctionResult2 = _.find( _private.subscriptionStrings, { fn: item.fn } );
-    //   subscriptionFunctionResult2.fn = fnString;
-
-    //   amplify.subscribe( item.topic, this, item.fn );
-    // }, this);
+    for (var i = 0, len = this.subscriptions.length; i < len; i++) {
+      (function(i, instance){
+        var item = instance.subscriptions[i];
+        var data = {
+          instance: instance,
+          item: item
+        };
+        Fn.subscribe( item.topic, instance, item.fn );
+      })(i, this);
+    }
 
     // loops through all inits and runs them
     // _.each( this.inits, function( item, count, collection ){
@@ -197,13 +106,14 @@
     }
   };
 
-  Fn.subscribe = Fn.prototype.subscribe = function(/* String */topic, /* Function */callback){
+  Fn.subscribe = Fn.prototype.subscribe = function(/* String */topic, /* Object */bindee, /* Function */callback){
     'use strict';
     if(!_private.cache[topic]){
       _private.cache[topic] = [];
     }
-    _private.cache[topic].push(callback);
-    return [topic, callback]; // Array
+    var boundedCb = callback.bind(bindee);
+    _private.cache[topic].push(boundedCb);
+    return [topic, boundedCb]; // Array
   };
 
   Fn.unsubscribe = Fn.prototype.unsubscribe = function(/* Array */handle){
@@ -216,7 +126,17 @@
     });
   };
 
-  scope.Section = Fn;
+  Fn.getSubscriptions = Fn.prototype.getSubscriptions = function(){
+    'use strict';
+    return _private.cache;
+  };
 
-})(this, undefined);
-// });
+  Fn.version = Fn.prototype.version = function(){
+    'use strict';
+    return _private.VERSION;
+  };
+
+  Section = Fn;
+
+  return Fn;
+}));
