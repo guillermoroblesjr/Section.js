@@ -4,6 +4,8 @@ A simple way to modularize your javascript components for the Browser. Section.j
 the global window but you do not need to use jQuery. You can just use it to split you logic into
 organizable chunks.
 
+<a href="http://guillermoroblesjr.github.io/Section.js/">View a live example here</a>
+
 In your file, do something like this:
 
 ```js
