@@ -19,13 +19,15 @@ var feature = new Section({
       events: 'click',
       selector: 'div',
       fn: function(e){
+        var instance = e.data.instance;
+        var data = instance.data;
         console.log(
           '$(this) is: ', $(this), '\n',
           'e is: ', e, '\n',
           'e.data is: ', e.data
         );
         
-        this.publish('a-div-was-clicked!', { event: e, element: $(this), instance: e.data.instance });
+        instance.publish('a-div-was-clicked!', { event: e, element: $(this), instance: e.data.instance });
       }
     }
   ],
