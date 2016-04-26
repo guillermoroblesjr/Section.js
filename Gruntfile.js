@@ -119,27 +119,27 @@ module.exports = function (grunt) {
           }
         }
       },
-      coverage: {
-        options: {
-          open: true,
-          port: 9002,
-          livereload: true,
-          hostname: 'localhost',
-          middleware: function(connect) {
-            return [
-              //connect.static('coverage/phantomjs/lcov-report'),
-              //connect.static('/coverage/PhantomJS\\ 201.9.8\\ 20(Windows\\ 208)/lcov-report'),
-              connect.static('coverage/reports/phantomjs'),
+      // coverage: {
+      //   options: {
+      //     open: true,
+      //     port: 9002,
+      //     livereload: true,
+      //     hostname: 'localhost',
+      //     middleware: function(connect) {
+      //       return [
+      //         //connect.static('coverage/phantomjs/lcov-report'),
+      //         //connect.static('/coverage/PhantomJS\\ 201.9.8\\ 20(Windows\\ 208)/lcov-report'),
+      //         connect.static('coverage/reports/phantomjs'),
 
-              connect().use('/bower_components', connect.static('./bower_components')),
-              connect().use('/node_modules', connect.static('./node_modules')),
-              //connect().use('/coverage/PhantomJS%201.9.8%20(Windows%208)/lcov-report', connect.static('./coverage/PhantomJS%201.9.8%20(Windows%208)/lcov-report')),
+      //         connect().use('/bower_components', connect.static('./bower_components')),
+      //         connect().use('/node_modules', connect.static('./node_modules')),
+      //         //connect().use('/coverage/PhantomJS%201.9.8%20(Windows%208)/lcov-report', connect.static('./coverage/PhantomJS%201.9.8%20(Windows%208)/lcov-report')),
 
-              //connect.static('./coverage/PhantomJS%201.9.8%20(Windows%208)/lcov-report')
-            ];
-          }
-        }
-      },
+      //         //connect.static('./coverage/PhantomJS%201.9.8%20(Windows%208)/lcov-report')
+      //       ];
+      //     }
+      //   }
+      // },
       dist: {
         options: {
           base: '<%= config.dist %>',
@@ -218,17 +218,17 @@ module.exports = function (grunt) {
     karma: {
         options: {
             runnerPort: 9876,
-            browsers: ['PhantomJS', 'Chrome'],
+            browsers: [/*'PhantomJS', */'Chrome'],
         },
         continous: {
             configFile: 'karma.conf.js',
-            browsers: ['PhantomJS'],
+            browsers: ['Chrome'],
             singleRun: false,
             background: true
         },
         unit: {
             configFile: 'karma.conf.js',
-            browsers: ['PhantomJS'],
+            browsers: ['Chrome'],
             singleRun: true,
             background: false
         },
@@ -454,9 +454,9 @@ module.exports = function (grunt) {
       'autoprefixer',
       'connect:livereload',
       'connect:test',
-      'connect:coverage',
-      'karma:continous',
-      'mocha',
+      // 'connect:coverage',
+      // 'karma:continous',
+      // 'mocha',
       'watch'
     ]);
   });

@@ -1,0 +1,21 @@
+define(function(require, exports, module){
+  
+  'use strict';
+
+  ////////////////////////////////////////////////////////////////////////
+  // DEPENDENCIES
+  ////////////////////////////////////////////////////////////////////////
+
+  var changeBackgroundColor1 = require('scripts/index/app').changeBackgroundColor1;
+  var spinBlocks1 = require('scripts/index/app').spinBlocks1;
+  var buttonPublishes1 = require('scripts/index/app').buttonPublishes1;
+
+  ////////////////////////////////////////////////////////////////////////
+  // APP FEATURES INITIALIZATION
+  ////////////////////////////////////////////////////////////////////////
+
+  changeBackgroundColor1.init();
+  spinBlocks1.init();
+  buttonPublishes1.init();
+
+});

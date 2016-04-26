@@ -1,10 +1,12 @@
 (function (root, factory) {
   if(typeof define === "function" && define.amd) {
     // Now we're wrapping the factory and assigning the return
-    // value to the root (window) and returning it as well to
-    // the AMD loader.
+    // value to the AMD loader.
+    // You can assign it to root (window) as well but it will
+    // pollute the global scope.
     define(["Section"], function(Section){
-      return (root.Section = factory(Section));
+      // return (root.Section = factory(Section));
+      return factory(Section);
     });
   } else if(typeof module === "object" && module.exports) {
     // I've not encountered a need for this yet, since I haven't
@@ -26,7 +28,7 @@
   var _Private = function(){
     'use strict';
 
-    this.VERSION = '0.0.5';
+    this.VERSION = '0.0.6-alpha';
     this.cache = {};
 
     return this;
@@ -89,9 +91,12 @@
     }
 
     // loops through all inits and runs them
-    // _.each( this.inits, function( item, count, collection ){
-    //   item.fn.apply( this, item.args );
-    // }, this);
+    for (var i = 0, len = this.inits.length; i < len; i++) {
+      (function(i, instance){
+        var item = instance.inits[i];
+        item.fn.apply( instance, item.args );
+      })(i, this);
+    }
   };
 
   Fn.publish = Fn.prototype.publish = function(/* String */topic, /* Array? */data){
@@ -136,7 +141,7 @@
     return _private.VERSION;
   };
 
-  Section = Fn;
+  // Section = Fn;
 
   return Fn;
 }));

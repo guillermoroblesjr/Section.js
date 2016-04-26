@@ -1,8 +1,8 @@
 <!doctype html>
-<html class="no-js">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>Class js</title>
+    <title>Section.js</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -12,10 +12,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css"> -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
   </head>
@@ -24,51 +23,73 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <main class="fullwidth">
+    <main>
       <h1>Section.js</h1>
-      <p>Open your console to see the work.</p>      
+      <div class="section-wrapper">
+        <div class="half">
+          <div id="widget-section" class="unselectable">
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+          </div>
+          <hr>
+          <div id="widget-section2" class="unselectable">
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+            <div class="blocks" random-color change-colors spin-blocks></div>
+          </div>
+        </div>
+        <div id="second-half" class="half">
+          <div class="arrow-split arrow_box"></div>
+          <div id="arrow-cover"></div>
+          <ul id="button-publishes" class="">
+            <li class="center">
+              <button change-all-block-colors>Publish "change all block colors"</button>
+            </li>
+            <li class="center">
+              <button spin-all-blocks>Publish "spin all blocks"</button>
+            </li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+
     </main>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/amplify/lib/amplify.js"></script>
-    <script src="bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
-    <script src="bower_components/foundation/js/foundation.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-
-        <!-- build:js(.) scripts/plugins.js -->
-<!--         // <script src="bower_components/bootstrap/js/affix.js"></script>
-        // <script src="bower_components/bootstrap/js/alert.js"></script>
-        // <script src="bower_components/bootstrap/js/dropdown.js"></script>
-        // <script src="bower_components/bootstrap/js/tooltip.js"></script>
-        // <script src="bower_components/bootstrap/js/modal.js"></script>
-        // <script src="bower_components/bootstrap/js/transition.js"></script>
-        // <script src="bower_components/bootstrap/js/button.js"></script>
-        // <script src="bower_components/bootstrap/js/popover.js"></script>
-        // <script src="bower_components/bootstrap/js/carousel.js"></script>
-        // <script src="bower_components/bootstrap/js/scrollspy.js"></script>
-        // <script src="bower_components/bootstrap/js/collapse.js"></script>
-        // <script src="bower_components/bootstrap/js/tab.js"></script> -->
-        <!-- endbuild -->
-
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/Section/Section.js"></script>
-        <script src="scripts/Section/examples.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="bower_components/requirejs/require.js" data-main="/scripts/main"></script>
+    <!-- endbuild -->
 </body>
 </html>

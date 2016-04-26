@@ -133,6 +133,46 @@
       });
     });
 
+    describe('calling init', function(){
+      it('should loop through all inits and run them', function(){
+
+        var count = 0;
+
+        var init1 = {
+          fn: function( data ){
+            count++;
+          },
+          args: [count]
+        };
+
+        var init2 = {
+          fn: function( data ){
+            count++;
+          },
+          args: [count]
+        };
+
+        var init3 = {
+          fn: function( data ){
+            count++;
+          },
+          args: [count]
+        };
+        
+        var feature = new Section({
+          section: null,
+          data: {},
+          events: [],
+          subscriptions: [],
+          inits: [ init1, init2, init3 ],
+        });
+
+        feature.init();
+
+        expect(count).to.equal(3);
+      });
+    });
+
     describe('publish/subscribe', function(){
       it('should return the subscription handle', function(){
 
