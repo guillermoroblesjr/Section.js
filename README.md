@@ -1,25 +1,19 @@
 # Section.js
 
-A simple way to modularize your javascript components for the Browser. Dependencies are:
-<ol>
-  <li>require.js</li>
-  <li>lodash.js</li>
-  <li>amplify.js</li>
-  <li>jquery.js</li>
-</ol>
+A simple way to modularize your javascript components for the Browser. Section.js expects jQuery on
+the global window but you do not need to use jQuery. You can just use it to split you logic into
+organizable chunks.
 
 In your file, do something like this:
 
 ```js
-var $ = require('jquery');
-var _ = require('lodash');
-var amplify = require('amplify');
 var Section = require('js/components/Section');
 
 var feature = new Section({
   section: $('body'),
-  events: {
-    'onClick_div': {
+  events: [
+    // fire this event handler when a div is clicked
+    {
       events: 'click',
       selector: 'div',
       fn: function(e){
@@ -36,17 +30,19 @@ var feature = new Section({
         amplify.publish('a-div-was-clicked!', { event: e, element: $(this), instance: e.data.instance });
       }
     }
-  },
-  subscriptions: {
-    sub1: {
+  ],
+  subscriptions: [
+    // fire this function when you hear the publish to your `topic`
+    {
       'topic': 'another-app-publishes-to-this',
       fn: function(data){
         // "this" is the "feature" instance
       }
     }
-  },
-  inits: {
-    'this runs when instantiated': {
+  ],
+  inits: [
+    // this runs when the feature is ran with init
+    {
       fn: function(item){
         console.log(
           'this is: ', this, '\n',
@@ -54,8 +50,8 @@ var feature = new Section({
         );
       },
       args: ['stuff']
-    },
-  },
+    }
+  ],
 });
 
 feature.init();
