@@ -6,17 +6,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
     <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css"> -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/requirejs/require.js" data-main="/scripts/main"></script>
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -79,17 +72,6 @@
         </div>
         <div class="clear"></div>
       </div>
-
     </main>
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js({app,.tmp}) scripts/main.js -->
-    <script src="bower_components/requirejs/require.js" data-main="/scripts/main"></script>
-    <!-- endbuild -->
 </body>
 </html>
