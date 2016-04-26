@@ -25,11 +25,7 @@ var feature = new Section({
           'e.data is: ', e.data
         );
         
-        _.each( $(this), function(item, count, collection){
-          console.log('item is: ', item);
-        });
-        
-        amplify.publish('a-div-was-clicked!', { event: e, element: $(this), instance: e.data.instance });
+        this.publish('a-div-was-clicked!', { event: e, element: $(this), instance: e.data.instance });
       }
     }
   ],
