@@ -1,0 +1,250 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
+#widget-section,
+#widget-section2 {
+  text-align: center;
+  margin: auto;
+  max-width: 420px;
+}
+
+.blocks {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.spin {
+  animation: spin 5s 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.arrow-split {
+  position: absolute;
+    top: 425px;
+    left: 0;
+    /* min-width: 1px; */
+    /* min-height: 1px; */
+    background-color: limegreen;
+    z-index: -1;
+}
+
+/* .arrow_box {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #000000;
+} */
+.arrow_box:after, .arrow_box:before {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  left: -425px;
+}
+
+.arrow_box:after {
+  border-right-color: #12C660;
+  border-width: 425px;
+  margin-top: -425px;
+}
+.arrow_box:before {
+  border-color: rgba(0, 0, 0, 0);
+  border-right-color: #000000;
+  border-width: 425px;
+  margin-top: -425px;
+}
+
+.half {
+  width: 50%;
+  display: inline-block;
+  height: 850px;
+  position: relative;
+  /*border: 1px solid red;*/
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.section-wrapper {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+hr {
+  display: block;
+  padding: 0;
+  margin-top: 9px;
+  margin-bottom: 12px;
+  border-top: 1px solid #ccc;
+  border-bottom: 0;
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+main > h1 {
+  text-align: center;
+  font-family: "Fredoka One";
+  color: #CB00FF;
+  margin: 0;
+  padding: 30px;
+  background-color: #F7FFF7;
+  font-size: 40px;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+#button-publishes{
+  list-style: none;
+  top: 383px;
+  position: relative;
+  margin-left: 167px;
+}
+
+#button-publishes li {
+  padding: 5px;
+  float: left;
+}
+
+#second-half {
+  background-color: #12C660;
+  z-index: 0;
+}
+
+#arrow-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 425px;
+  background-color: #FFFFFF;
+  z-index: -2;
+}
+
+button {
+  color: #fff;
+  background-color: rgba(240, 255, 255, 0);
+  border: 1px solid #fff;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:focus {
+  outline: inherit;
+}
