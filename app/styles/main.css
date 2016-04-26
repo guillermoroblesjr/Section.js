@@ -192,7 +192,7 @@ hr {
   user-select: none;
 }
 
-main > h1 {
+#header {
   text-align: center;
   font-family: "Fredoka One";
   color: #CB00FF;
@@ -200,6 +200,10 @@ main > h1 {
   padding: 30px;
   background-color: #F7FFF7;
   font-size: 40px;
+}
+
+#header-link {
+  text-decoration: none;
 }
 
 .right {
